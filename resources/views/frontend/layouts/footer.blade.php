@@ -3,9 +3,10 @@
         <div class="row">
             <div class="col-md-8">
                 <h3 style="color: white">Contact US</h3>
-                <p style="color: white">Address: Islami Bank Model School and College, Mirpur,Dhala<br>
+                <p style="color: white">Address: Islami Bank Model School and College, Mirpur,Dhaka<br>
+                    House:555/1,Senpara Porbota,Mirpur-14. Dhaka-1216<br>
                     Contract no: 123456789<br>
-                    email:abd@yahoo.com
+                    email:Ibmschool2008@gmail.com
                 </p>
             </div>
             <div class="col-md-4">

@@ -43,7 +43,7 @@
 
                                 <h3 class="profile-username text-center">{{$user->name}}</h3>
 
-                                <p class="text-muted text-center">{{$user->address}}</p>
+                                <p class="text-muted text-center">{{$user->branch_name}}</p>
 
                                <table width="100%" class="table table-border">
                                    <tbody>
@@ -57,12 +57,12 @@
                                        <td>{{$user->email}}</td>
                                    </tr>
                                    <tr>
-                                       <td>Gender</td>
-                                       <td>{{$user->gender}}</td>
+                                       <td>Branch Name</td>
+                                       <td>{{$user->branch_name}}</td>
                                    </tr>
                                    <tr>
-                                       <td>Address</td>
-                                       <td>{{$user->address}}</td>
+                                       <td>Designation</td>
+                                       <td>{{$user->designation}}</td>
                                    </tr>
 
                                    </tbody>

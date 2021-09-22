@@ -30,7 +30,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style=" background-color: #99ccff">
                                 <li><a class="dropdown-item" href="permit.html">Year Final Examination</a></li>
-                                <li><a class="dropdown-item" href="business_strt.html">Teacher Information </a></li>
+                                <li><a class="dropdown-item" href="{{route('teacherinfo')}}">Teacher Information </a></li>
                                 <li><a class="dropdown-item" href="business_strt.html">Student Information </a></li>
 
                                 <!--<li><hr class="dropdown-divider"></li>

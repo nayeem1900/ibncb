@@ -43,7 +43,7 @@
                             </div><!-- /.card-header -->
                             <div class="card-body">
 
-                                <form method="POST" action="{{route('profiles.password.update')}}">
+                                <form method="POST" id="myForm" action="{{route('profiles.password.update')}} ">
                                     @csrf
                                     @include('backend.layouts.message')
 
@@ -68,7 +68,15 @@
 
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="new_password" class="col-md-4 col-form-label text-md-right">{{ __('Again New Password') }}</label>
 
+                                        <div class="col-md-4">
+                                            <input  type="password" class="form-control @error('password') is-invalid @enderror" name="again_new_password" >
+
+
+                                        </div>
+                                    </div>
 
 
 
@@ -98,7 +106,55 @@
         <!-- /.content -->
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
 
+
+            $('#myForm').validate({
+                rules: {
+                    "current_password": {
+                        required: true,
+                    },
+                    "new_password": {
+                        required: true,
+                        minlength:6
+
+                    },
+                    "again_new_password": {
+                        required: true,
+                        equalTo:'#new_password'
+
+
+                    }
+                },
+
+                messages: {
+                    current_password:{
+                        required:'Please Enter Current Password',
+                    },
+                    new_password:{
+                        required:'Please Enter New Password',
+                    },
+                    again_new_password:{
+                        required:'Please Enter Same Password',
+                    }
+
+
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
 
 
 

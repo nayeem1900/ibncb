@@ -21,6 +21,11 @@ class FrontendController extends Controller
 
         return view('frontend.pages.admission');
     }
+
+    public function teacherinfo(){
+
+        return view('frontend.pages.teacher_info');
+    }
     public function contact(){
 
         return view('frontend.pages.contact');

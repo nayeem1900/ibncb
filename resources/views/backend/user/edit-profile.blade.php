@@ -52,19 +52,6 @@
                                     @csrf
                                     @include('backend.layouts.message')
 
-                                    <div class="form-group row">
-                                        <label for="usertype" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
-
-                                        <div class="col-md-4">
-
-                                            <select name="usertype" id="usertype" class="form-control">
-                                                <option value="">Select Role</option>
-                                                <option value="Admin"{{($editData->usertype=="Admin")?"selected":""}}>Admin</option>
-                                                <option value="User" {{($editData->usertype=="User")?"selected":""}}>User</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
 
 
 
@@ -92,26 +79,13 @@
                                     </div>
 
 
-                                    <div class="form-group row">
-                                        <label for="usertype" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
-                                        <div class="col-md-4">
-
-                                            <select name="gender" id="gender" class="form-control">
-                                                <option value="">Select Gender</option>
-                                                <option value="Male"{{($editData->gender=="Male")?"selected":""}}>Male</option>
-                                                <option value="Female" {{($editData->gender=="Female")?"selected":""}}>Female</option>
-                                                <option value="Other" {{($editData->gender=="Other")?"selected":""}}>Other</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
 
                                     <div class="form-group row">
-                                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Branch Name') }}</label>
 
                                         <div class="col-md-4">
-                                            <input id="address" value="{{$editData->address}}" type="text" class="form-control @error('email') is-invalid @enderror" name="address"  required autocomplete="email" autofocus>
+                                            <input id="address" value="{{$editData->branch_name}}" type="text" class="form-control @error('email') is-invalid @enderror" name="branch_name"  required autocomplete="branch_name" autofocus>
                                             <font style="color:red">{{($errors->has('email'))?($errors->first('name')): ''}}</font>
 
                                         </div>
@@ -124,6 +98,17 @@
 
                                         <div class="col-md-4">
                                             <input name="mobile" value="{{$editData->mobile}}" id="mobile" type="number" class="form-control" required ="">
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="designation" class="col-md-4 col-form-label text-md-right">{{ __('Designation') }}</label>
+
+
+                                        <div class="col-md-4">
+                                            <input name="designation" value="{{$editData->designation}}" id="mobile" type="text" class="form-control" required ="">
 
 
 

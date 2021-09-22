@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','Frontend\FrontendController@index')->name('index');
 Route::get('objective','Frontend\FrontendController@objective')->name('objective');
 Route::get('admission','Frontend\FrontendController@admission')->name('admission');
+Route::get('teacher_info','Frontend\FrontendController@teacherinfo')->name('teacherinfo');
 Route::get('contact','Frontend\FrontendController@contact')->name('contact');
 
 Auth::routes();
@@ -43,4 +44,13 @@ Route::prefix ('profiles')->group (function () {
     Route::post('/password/update', 'Backend\ProfileController@passwordUpdate')->name('profiles.password.update');
 
 
+});
+Route::prefix ('logos')->group (function () {
+    //admin-dashboard
+    Route::get('/view', 'Backend\LogoController@view')->name('logos.view');
+    Route::get('/add', 'Backend\LogoController@add')->name('logos.add');
+    Route::post('/store', 'Backend\LogoController@store')->name('logos.store');
+    Route::get('/edit/{id}', 'Backend\LogoController@edit')->name('logos.edit');
+    Route::post('/update/{id}', 'Backend\LogoController@update')->name('logos.update');
+    Route::post('/delete/{id}', 'Backend\LogoController@delete')->name('logos.delete');
 });
