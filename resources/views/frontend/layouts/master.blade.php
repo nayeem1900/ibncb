@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href=" {{asset('public/frontend/css/custom.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
     <script src=" {{asset('public/frontend/js/b63bb1dcf5.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -26,7 +27,7 @@
     </div>
 
 </div>
-<script src=" {{asset('public/frontend/js/jquery-3.6.0.min.js')}}"></script>
+<script src=" {{asset('public/frontend/js/jquery-3.6.0.min.js')}} " integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $(window).scroll(function () {

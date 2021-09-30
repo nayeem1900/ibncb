@@ -18,6 +18,12 @@
 </section>
 <!--slider section ctrl+? mark shortcut-->
 @include('frontend.layouts.slider')
+<!--slider bellow image-->
+<div class="row">
+    <img src="{{asset('public/frontend/image/admission_baner.jpg')}}">
+
+</div>
+
 
 <!--mission vission-->
 <section class="mission_vission">
@@ -53,38 +59,30 @@ background: #EFEE03;border-radius: 30px; float: left; margin-right: 10px; ">
 <!--Column Notice bord-->
 <section class="notice_board">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        Up Comming Events
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-5">
+        <div class="row notice_board">
+
+            <div class="col-md-6">
                 <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
                     <div class="card-header">Notice</div>
                     <div class="card-body">
-                        <marquee direction="up"> <h5 class="card-title">Light card title</h5>
+                        <marquee direction="up"> <h5 class="card-title">Admission on Going</h5>
                             <p class="card-text"><a href=""> Everyone will come to school wear mask.</a> </p>
 
-                            <p class="card-text1"><a href=""> Everyone .</a> </p>
+                            <p class="card-text1"><a href="">পরিবারের কেউ অসুস্থ হলে শিক্ষককে জানান। </a> </p>
                         </marquee>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Important Links</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Light card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                       Importants Link
                     </div>
+                    <ul class="list-group list-group-flush link">
+                       <a href="http://ibfbd.org/">   Islami Bank Foundation </a>
+                        <a href="https://dhakaeducationboard.gov.bd/">   Islami Bank Foundation </a>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
                 </div>
             </div>
 

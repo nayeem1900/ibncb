@@ -12,16 +12,12 @@
     <!--about us-->
 <div class="row">
 
-   <div class="col-md-6">
-       <img src="{{url('public/frontend/image/admission1.jpg')}}" style="width:100%;">
 
-   </div>
-
-    <div class="col-md-6">
-        <img src="{{url('public/frontend/image/admission2.jpg')}}" style="width:100%;">
+       <img src="{{url('public/frontend/image/admission_baner.jpg')}}" style="width:100%;">
 
 
-    </div>
+
+
 
 </div>
 

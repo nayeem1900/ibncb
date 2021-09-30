@@ -5,7 +5,7 @@
                 <h3 style="color: white">Contact US</h3>
                 <p style="color: white">Address: Islami Bank Model School and College, Mirpur,Dhaka<br>
                     House:555/1,Senpara Porbota,Mirpur-14. Dhaka-1216<br>
-                    Contract no: 123456789<br>
+                    Contract no:8031808, 01309133984<br>
                     email:Ibmschool2008@gmail.com
                 </p>
             </div>

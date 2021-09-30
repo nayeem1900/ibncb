@@ -42,7 +42,7 @@ class UserController extends Controller
 
         $data->email= $request->email;
 
-        $data->password=$request->password;
+        $data->password=bcrypt($request->password);
         $data->save();
         session()->flash('success',' Data update success');
         return redirect()->route('users.view');
