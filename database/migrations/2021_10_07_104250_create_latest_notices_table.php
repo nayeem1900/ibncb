@@ -17,6 +17,7 @@ class CreateLatestNoticesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->date('post_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->string('lnotice_download')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

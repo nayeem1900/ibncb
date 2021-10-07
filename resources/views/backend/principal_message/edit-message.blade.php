@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Latest Notice</h1>
+                        <h1 class="m-0 text-dark">Manage Principal Message</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -35,9 +35,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3>Add Latest Notice
+                                <h3>Add Message
 
-                                    <a class="btn btn-success float-right btn-sm" href="{{route('latest_notice.view')}}"><i class="fa fa-list"></i>Latest Notice List</a>
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('principals.view')}}"><i class="fa fa-list"></i>Message List</a>
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -47,46 +47,31 @@
 
 
 
-                                <form method="POST" action="{{route('latest_notice.update',$editData->id)}}" id="myForm" enctype="multipart/form-data" >
+                                <form method="POST" action="{{route('principals.update')}}" id="myForm" enctype="multipart/form-data" >
                                     @csrf
                                     @include('backend.layouts.message')
 
 
 
                                     <div class="form-row">
-                                        <div class=" form-group col-md-6">
-                                            <label for="short_title" >Title</label>
+                                        <div class=" form-group col-md-12">
+                                            <label for="short_title" > Title</label>
 
-                                            <input type="text" name="title" value="{{$editData->title}}" class="form-control">
-                                        </div>
-
-
-
-                                        <div class=" form-group col-md-6">
-                                            <label for="long_title" >Post Date</label>
-
-                                            <input type="date" name="post_date"  value="{{$editData->post_date}}" class="form-control"id="t_date">
-                                        </div>
-
-                                        <div class=" form-group col-md-6">
-                                            <label for="long_title" >End Date</label>
-
-                                            <input type="date" name="end_date" value="{{$editData->end_date}}" class="form-control"id="t_date">
+                                            <input type="text" name="title" class="form-control">
                                         </div>
 
 
 
 
                                         <div class=" form-group col-md-4">
-                                            <label for="image" >Download</label>
+                                            <label for="image" >Image</label>
 
-                                            <input type="file" name="lnotice_download" value="{{$editData->lnotice_download}}" class="form-control"id="image">
+                                            <input type="file" name="image" class="form-control"id="image">
                                         </div>
 
                                         <div class=" form-group col-md-2">
-                                            <img id="showImage" src="{{(!empty($editData->lnotice_download))?url('public/upload/notice_images/'.$editData->lnotice_download):url('public/upload/notice_images/no_img.png')}}" style="width: 150px;height: 160px;border: 1px solid#000;" >
 
-                                            {{--<img id="showImage" src="{{url('public/backend/image/no_img.png')}}" style="width: 150px;height: 160px;border: 1px solid#000;" >--}}
+                                            <img id="showImage" src="{{url('public/backend/image/no_img.png')}}" style="width: 150px;height: 160px;border: 1px solid#000;" >
                                         </div>
 
 
@@ -119,5 +104,10 @@
 
 
 
-
 @endsection
+
+$('.date-picker').datepicker({
+format: 'yy/mm/dd',
+autoclose: true,
+todayHighlight: true
+});

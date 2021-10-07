@@ -3,31 +3,31 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Model\Mission;
+use App\Model\PrincipalMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MissionController extends Controller
+class PrincipalMessageController extends Controller
 {
     public function view(){
-        $data['countMission']=Mission::count();
-        $data['allData']=Mission::all();
+        $data['countMessage']=PrincipalMessage::count();
+        $data['allData']=PrincipalMessage::all();
 
 
-        return view ('backend.mission_about_school.view-mission', $data);
+        return view ('backend.principal_message.view-message', $data);
 
 
     }
 
     public function add(){
 
-        return view('backend.mission_about_school.add-mission');
+        return view('backend.principal_message.add-message');
 
     }
 
     public function store(Request $request){
 
-        $data =new Mission();
+        $data =new PrincipalMessage();
         $data->title=$request->title;
 
         $data->created_by=Auth::user()->id;
@@ -42,18 +42,18 @@ class MissionController extends Controller
         }
         $data->save();
         session()->flash('success',' Data save success');
-        return redirect()->route('missions.view');
+        return redirect()->route('principals.view');
     }
 
     public function edit($id){
 
-        $editData=Mission::find($id);
-        return view('backend.mission_about_school.edit-mission',compact('editData'));
+        $editData=PrincipalMessage::find($id);
+        return view('backend.principal_message.edit-message',compact('editData'));
     }
 
     public function update(Request $request,$id){
 
-        $data =Mission::find($id);
+        $data =PrincipalMessage::find($id);
         $data->title=$request->title;
         $data->updated_by=Auth::user()->id;
 
@@ -74,13 +74,13 @@ class MissionController extends Controller
     }
     public function delete($id){
 
-        $mission=Mission::find($id);
+        $message=PrincipalMessage::find($id);
 
-        if(file_exists('public/backend/image/' .$mission->image)AND !empty($mission->image)){
-            unlink('public/backend/image/' .$mission->image);
+        if(file_exists('public/backend/image/' .$message->image)AND !empty($message->image)){
+            unlink('public/backend/image/' .$message->image);
         }
-        $mission->delete();
-        return redirect()->route('missions.view')->with('success', 'Data Deleted successfully');
+        $message->delete();
+        return redirect()->route('principals.view')->with('success', 'Data Deleted successfully');
     }
 
 }

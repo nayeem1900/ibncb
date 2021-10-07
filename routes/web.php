@@ -75,12 +75,20 @@ Route::prefix ('missions')->group (function () {
     Route::post('/delete/{id}', 'Backend\MissionController@delete')->name('missions.delete');
 });
 Route::prefix ('principals')->group (function () {
-    Route::get('/view', 'Backend\PrincipalController@view')->name('principals.view');
-    Route::get('/add', 'Backend\PrincipalController@add')->name('principals.add');
-    Route::post('/store', 'Backend\PrincipalController@store')->name('principals.store');
-    Route::get('/edit/{id}', 'Backend\PrincipalController@edit')->name('principals.edit');
-    Route::post('/update/{id}', 'Backend\PrincipalController@update')->name('principals.update');
-    Route::post('/delete/{id}', 'Backend\PrincipalController@delete')->name('principals.delete');
+    Route::get('/view', 'Backend\PrincipalMessageController@view')->name('principals.view');
+    Route::get('/add', 'Backend\PrincipalMessageController@add')->name('principals.add');
+    Route::post('/store', 'Backend\PrincipalMessageController@store')->name('principals.store');
+    Route::get('/edit/{id}', 'Backend\PrincipalMessageController@edit')->name('principals.edit');
+    Route::post('/update/{id}', 'Backend\PrincipalMessageController@update')->name('principals.update');
+    Route::post('/delete/{id}', 'Backend\PrincipalMessageController@delete')->name('principals.delete');
+});
+Route::prefix ('facilities')->group (function () {
+    Route::get('/view', 'Backend\FacilityController@view')->name('facilities.view');
+    Route::get('/add', 'Backend\FacilityController@add')->name('facilities.add');
+    Route::post('/store', 'Backend\FacilityController@store')->name('facilities.store');
+    Route::get('/edit/{id}', 'Backend\FacilityController@edit')->name('facilities.edit');
+    Route::post('/update/{id}', 'Backend\FacilityController@update')->name('facilities.update');
+    Route::post('/delete/{id}', 'Backend\FacilityController@delete')->name('facilities.delete');
 });
 Route::prefix ('latest_notice')->group (function () {
     //latest notice

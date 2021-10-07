@@ -55,7 +55,7 @@
 
                                     <div class="form-row">
                                         <div class=" form-group col-md-6">
-                                            <label for="short_title" >Title</label>
+                                            <label for="title" >Title</label>
 
                                             <input type="text" name="title" class="form-control">
                                         </div>
@@ -63,9 +63,14 @@
 
 
                                         <div class=" form-group col-md-6">
-                                            <label for="long_title" >Post Date</label>
+                                            <label for="date" >Post Date</label>
 
                                             <input type="date" name="post_date" class="form-control"id="t_date">
+                                        </div>
+                                        <div class=" form-group col-md-6">
+                                            <label for="date" >End Date</label>
+
+                                            <input type="date" name="end_date" class="form-control"id="t_date">
                                         </div>
 
 

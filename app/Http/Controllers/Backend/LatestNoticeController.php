@@ -30,6 +30,7 @@ class LatestNoticeController extends Controller
         $data =new LatestNotice();
         $data->title=$request->title;
         $data->post_date = $request->post_date;
+        $data->end_date = $request->end_date;
         $data->created_by=Auth::user()->id;
         if ($request->file('lnotice_download')) {
 
@@ -47,41 +48,39 @@ class LatestNoticeController extends Controller
 
     public function edit($id){
 
-        $editData=Slider::find($id);
-        return view('backend.slider.edit-slider',compact('editData'));
+        $editData=LatestNotice::find($id);
+        return view('backend.latest_notice.edit-latest-notice',compact('editData'));
     }
 
     public function update(Request $request,$id){
 
-        $data =Slider::find($id);
-        $data->short_title=$request->short_title;
-        $data->long_title=$request->long_title;
-        $data->updated_by=Auth::user()->id;
+        $data =LatestNotice::find($id);
+        $data->title=$request->title;
+        $data->post_date = $request->post_date;
+        $data->end_date = $request->end_date;
+        $data->created_by=Auth::user()->id;
+        if ($request->file('lnotice_download')) {
 
-        if ($request->file('image')) {
+            $file = $request->file('lnotice_download');
 
-            $file = $request->file('image');
-            @unlink(public_path('backend/image/' . $data->image));
 
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('backend/image'), $filename);
-            $data['image'] = $filename;
+            $file->move(public_path('upload/notice_images'), $filename);
+            $data['lnotice_download'] = $filename;
         }
         $data->save();
-        session()->flash('success',' slider update success');
-        return redirect()->route('sliders.view');
-
-
+        session()->flash('success',' Data save success');
+        return redirect()->route('latest_notice.view');
     }
     public function delete($id){
 
-        $slider=Slider::find($id);
+        $slider=LatestNotice::find($id);
 
         if(file_exists('public/backend/image/' .$slider->image)AND !empty($slider->image)){
             unlink('public/backend/image/' .$slider->image);
         }
         $slider->delete();
-        return redirect()->route('sliders.view')->with('success', 'Data Deleted successfully');
+        return redirect()->route('latest_notice.view')->with('success', 'Data Deleted successfully');
     }
 
 }

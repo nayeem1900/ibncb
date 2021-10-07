@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Latest Notice</h1>
+                        <h1 class="m-0 text-dark">Manage Facility</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -35,9 +35,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3>Add Latest Notice
+                                <h3>Edit Facility
 
-                                    <a class="btn btn-success float-right btn-sm" href="{{route('latest_notice.view')}}"><i class="fa fa-list"></i>Latest Notice List</a>
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('facilities.view')}}"><i class="fa fa-list"></i>Facility List</a>
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -47,7 +47,7 @@
 
 
 
-                                <form method="POST" action="{{route('latest_notice.update',$editData->id)}}" id="myForm" enctype="multipart/form-data" >
+                                <form method="POST" action="{{route('facilities.update',$editData->id)}}" id="myForm" enctype="multipart/form-data" >
                                     @csrf
                                     @include('backend.layouts.message')
 
@@ -55,39 +55,21 @@
 
                                     <div class="form-row">
                                         <div class=" form-group col-md-6">
-                                            <label for="short_title" >Title</label>
+                                            <label for="short_title" >Short Title</label>
 
-                                            <input type="text" name="title" value="{{$editData->title}}" class="form-control">
+                                            <input type="text" name="short_title" value="{{$editData->short_title}}" class="form-control">
                                         </div>
 
 
 
                                         <div class=" form-group col-md-6">
-                                            <label for="long_title" >Post Date</label>
+                                            <label for="long_title" >Long Title</label>
 
-                                            <input type="date" name="post_date"  value="{{$editData->post_date}}" class="form-control"id="t_date">
-                                        </div>
-
-                                        <div class=" form-group col-md-6">
-                                            <label for="long_title" >End Date</label>
-
-                                            <input type="date" name="end_date" value="{{$editData->end_date}}" class="form-control"id="t_date">
+                                            <input type="text" name="long_title" value="{{$editData->long_title}}" class="form-control">
                                         </div>
 
 
 
-
-                                        <div class=" form-group col-md-4">
-                                            <label for="image" >Download</label>
-
-                                            <input type="file" name="lnotice_download" value="{{$editData->lnotice_download}}" class="form-control"id="image">
-                                        </div>
-
-                                        <div class=" form-group col-md-2">
-                                            <img id="showImage" src="{{(!empty($editData->lnotice_download))?url('public/upload/notice_images/'.$editData->lnotice_download):url('public/upload/notice_images/no_img.png')}}" style="width: 150px;height: 160px;border: 1px solid#000;" >
-
-                                            {{--<img id="showImage" src="{{url('public/backend/image/no_img.png')}}" style="width: 150px;height: 160px;border: 1px solid#000;" >--}}
-                                        </div>
 
 
 
