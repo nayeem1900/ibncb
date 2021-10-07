@@ -67,13 +67,20 @@ Route::prefix ('sliders')->group (function () {
     Route::post('/delete/{id}', 'Backend\SliderController@delete')->name('sliders.delete');
 });
 Route::prefix ('missions')->group (function () {
-    //admin-dashboard
     Route::get('/view', 'Backend\MissionController@view')->name('missions.view');
     Route::get('/add', 'Backend\MissionController@add')->name('missions.add');
     Route::post('/store', 'Backend\MissionController@store')->name('missions.store');
     Route::get('/edit/{id}', 'Backend\MissionController@edit')->name('missions.edit');
     Route::post('/update/{id}', 'Backend\MissionController@update')->name('missions.update');
     Route::post('/delete/{id}', 'Backend\MissionController@delete')->name('missions.delete');
+});
+Route::prefix ('principals')->group (function () {
+    Route::get('/view', 'Backend\PrincipalController@view')->name('principals.view');
+    Route::get('/add', 'Backend\PrincipalController@add')->name('principals.add');
+    Route::post('/store', 'Backend\PrincipalController@store')->name('principals.store');
+    Route::get('/edit/{id}', 'Backend\PrincipalController@edit')->name('principals.edit');
+    Route::post('/update/{id}', 'Backend\PrincipalController@update')->name('principals.update');
+    Route::post('/delete/{id}', 'Backend\PrincipalController@delete')->name('principals.delete');
 });
 Route::prefix ('latest_notice')->group (function () {
     //latest notice

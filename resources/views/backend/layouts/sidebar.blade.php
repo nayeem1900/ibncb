@@ -118,6 +118,14 @@
                             <p>View Latest Notice</p>
                         </a>
                     </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('missions.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>About_School</p>
+                        </a>
+                    </li>
 
 
 
