@@ -47,7 +47,7 @@
 
 
 
-                                <form method="POST" action="{{route('missions.store')}}" id="myForm" enctype="multipart/form-data" >
+                                <form method="POST" action="{{route('missions.update',$editData->id)}}" id="myForm" enctype="multipart/form-data" >
                                     @csrf
                                     @include('backend.layouts.message')
 
@@ -57,7 +57,7 @@
                                         <div class=" form-group col-md-12">
                                             <label for="title" > Title</label>
 
-                                            <input type="text" name="title" class="form-control">
+                                            <input type="text" name="title" value="{{$editData->title}}"  class="form-control">
                                         </div>
 
 

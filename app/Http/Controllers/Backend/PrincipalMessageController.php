@@ -68,7 +68,7 @@ class PrincipalMessageController extends Controller
         }
         $data->save();
         session()->flash('success',' Information update success');
-        return redirect()->route('missions.view');
+        return redirect()->route('principals.view');
 
 
     }

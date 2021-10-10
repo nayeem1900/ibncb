@@ -20,7 +20,7 @@
 @include('frontend.layouts.slider')
 <!--slider bellow image-->
 <div class="row">
-    <img src="{{asset('public/frontend/image/admission_baner.jpg')}}">
+    <img src="{{asset('public/frontend/image/admission_baner.jpg')}}" style="width: 2200px" height="850px">
 
 </div>
 
@@ -40,16 +40,15 @@
                 <img src="{{asset('public/frontend/image/left.png')}}" style="border: 1px solid #ddd;padding: 5px;
 background: #EFEE03;border-radius: 30px; float: left; margin-right: 10px; ">
                 <p style="text-align: justify;"><strong>WHO WE ARE :</strong>
-                    Islami Bank Model School and College is one of the most prestigious and important educational institutions in Dhaka. It is located in the Mirpur. IBMSC was established in 2005 following the curriculum of Bangladesh Education Board.  Mr. ABD is the first principal of the School. The school is housed in well decorated buildings: six storied. At present this is a two-shift school with the strength of about 1000 students. This school consists of Bangla version.<br>
-
+                  {{$about_school->title}}
 
                 </p>
             </div>
             <div class="col-md-6">
-                <img src="{{asset('public/frontend/image/right.png')}}" style="border: 1px solid #ddd;padding: 5px;
-background: #EFEE03;border-radius: 30px; float: left; margin-right: 10px; ">
+                <img src="{{asset('public/backend/image/'.$principal_message->image)}}" style="border: 1px solid #ddd;padding: 5px;
+background: #EFEE03;border-radius: 30px; float: left; margin-right: 10px; width: 225px" height="225px" ;>
                 <p style="text-align: justify;"><strong>Principal Message</strong>
-                    A Permit Expediter is a trained professional that advises clients throughout the permitting process to keep construction projects on schedule and within budget. Permit Expediters typically have backgrounds in Planning, Construction, Real Estate, or Architecture and have experience working with local compliance codes and zoning requirements.
+                   {{$principal_message->title}}
                 </p>
             </div>
         </div>
@@ -100,33 +99,36 @@ background: #EFEE03;border-radius: 30px; float: left; margin-right: 10px; ">
     <div class="container" style="padding-top: 15px;">
 
         <ul class="nav nav-tabs">
+            @php
+$count_service = 0;
+            @endphp
+
+            @foreach($facilities as  $facility)
             <li class="nav-item">
-                <a class="nav-link active"  data-bs-toggle="tab"  href="#service">Facilities</a>
+                <a  class="nav-link @if($count_service == 0){ active } @endif"  data-bs-toggle="tab"  href="#{{$facility->id}}">{{$facility->short_title}}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#enterprise" data-bs-toggle="tab" >Event</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#startup" data-bs-toggle="tab">Club</a>
-            </li>
+                @php
+                    $count_service++
+                @endphp
+@endforeach
 
         </ul>
 
         <div class="tab-content">
-            <div id="service" class="tab-pane container active">
-                <h3>Facilities</h3>
-                <p>Newly we have worked side by side with extraordinary leaders to help them spur changes and drive transformation in their organizations, businesses, and industries.
-                    Our approach draws on our experience as former leaders, our experience as consultants, and weaves together best practices in action learning, process consulting, change, and leadership development. It is results-oriented, practical, flexible, and hands-on.
-                    Our success is grounded in the relationships we build with clients, our approach, and our patron.</p>
+            @php
+                $count_service =0;
+            @endphp
+
+            @foreach($facilities as $facility)
+            <div id="{{$facility->id}}" class="tab-pane container  @if($count_service ==0){ active } @endif">
+                <h3>{{$facility->short_title}}</h3>
+                <p>{{$facility->long_title}}</p>
             </div>
-            <div id="enterprise" class="tab-pane container fade">
-                <h3>Event</h3>
-                <p>IBMSC organized different types of events</p>
-            </div>
-            <div id="startup" class="tab-pane container fade">
-                <h3>Club</h3>
-                <p>IBMSC have different types of club activities such as debit, ICT, Music, Drama. Students are perticipate this club and express their merit.</p>
-            </div>
+
+                @php
+                    $count_service++
+                @endphp
+            @endforeach
 
         </div>
 

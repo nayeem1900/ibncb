@@ -3,15 +3,24 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Model\Facility;
 use App\Model\LatestNotice;
+use App\Model\Logo;
+use App\Model\Mission;
+use App\Model\PrincipalMessage;
+use App\Model\Slider;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
 
     public function index(){
-
-        return view('frontend.layouts.home');
+        $data['facilities']=Facility::all();
+        $data['about_school']=Mission::first();
+        $data['principal_message']=PrincipalMessage::first();
+       $data['logo']=Logo::first();
+        $data['sliders']=Slider::all();
+        return view('frontend.layouts.home',$data);
     }
 
     public function objective(){
@@ -33,13 +42,14 @@ class FrontendController extends Controller
     }
 
     public function Latestnotice(){
+        $data['logo']=Logo::first();
         $data['allData']=LatestNotice::all();
 
         return view('frontend.pages.latest-notice',$data);
     }
     public function DetailAboutus(){
-
-        return view('frontend.pages.details-aboutus');
+        $data['logo']=Logo::first();
+        return view('frontend.pages.details-aboutus',$data);
     }
 
     public function contact(){

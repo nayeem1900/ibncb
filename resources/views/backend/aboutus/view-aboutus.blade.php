@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Principal Message</h1>
+                        <h1 class="m-0 text-dark">Manage About Us</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -35,12 +35,10 @@
 
                         <div class="card">
                             <div class="card-header">
+                                <h3>About US List
 
-                                <h3>Principal Message
-                                    @if($countMessage<1)
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('about_us.add')}}"><i class="fa fa-plus-circle"></i> Add About us</a>
 
-                                        <a class="btn btn-success float-right btn-sm" href="{{route('principals.add')}}"><i class="fa fa-plus-circle"></i> Add Principal Message</a>
-                                    @endif
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -51,27 +49,27 @@
                                     <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Image</th>
-                                        <th>title</th>
+
+                                        <th>Short_title</th>
+                                        <th>Long_Title</th>
 
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($allData as $key=>$message)
+                                    @foreach($allData as $key=>$aboutus)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td><img src="{{(!empty($message->image))?url('public/backend/image/'.$message->image):url('public/backend/image/no_img.png')}}" style="width: 150px" height="160px"></td>
-                                            <td>{{$message->title}} </td>
-                                            <td> </td>
+                                            <td>{{$aboutus->short_title}} </td>
+                                            <td>{{$aboutus->long_title}} </td>
 
                                             <td>
-                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('principals.edit',$message->id)}}"><i class="fa fa-edit"></i></a>
+                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('about_us.edit',$aboutus->id)}}"><i class="fa fa-edit"></i></a>
                                                 {{-- <a title="Delete" class="btn btn-sm btn-danger" href="{{route('users.delete',$user->id)}}"><i class="fa fa-trash"></i></a>--}}
-                                                <a href="#deleteModal{{$message->id}}" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                                <a href="#deleteModal{{$aboutus->id}}" data-toggle="modal" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="deleteModal{{$message->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="deleteModal{{$aboutus->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -92,7 +90,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{route('principals.delete',$message->id)}}" method="post">
+                                                                <form action="{{route('about_us.delete',$aboutus->id)}}" method="post">
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-danger" >Permanent Delete</button>
 
