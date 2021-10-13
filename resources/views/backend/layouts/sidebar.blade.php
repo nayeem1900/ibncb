@@ -144,8 +144,6 @@ $route=Route::current()->getName();
                     </li>
 
 
-
-
                 </ul>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
@@ -154,9 +152,6 @@ $route=Route::current()->getName();
                             <p>Facility</p>
                         </a>
                     </li>
-
-
-
 
                 </ul>
                 <ul class="nav nav-treeview">
@@ -167,8 +162,14 @@ $route=Route::current()->getName();
                         </a>
                     </li>
 
-
-
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('admissions.view')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Admission</p>
+                        </a>
+                    </li>
 
                 </ul>
             </li>

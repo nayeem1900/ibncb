@@ -100,35 +100,34 @@ background: #EFEE03;border-radius: 30px; float: left; margin-right: 10px; width:
 
         <ul class="nav nav-tabs">
             @php
-$count_service = 0;
+            $count_service = 0;
             @endphp
-
-            @foreach($facilities as  $facility)
+            @foreach($facilities as $key=> $facility)
             <li class="nav-item">
-                <a  class="nav-link @if($count_service == 0){ active } @endif"  data-bs-toggle="tab"  href="#{{$facility->id}}">{{$facility->short_title}}</a>
+                <a href="#{{$facility->id}}" class="nav-link @if($count_service == 0){ active } @endif "data-bs-toggle="tab">{{$facility->short_title}}</a>
             </li>
                 @php
-                    $count_service++
+                $count_service++
                 @endphp
-@endforeach
+            @endforeach
 
         </ul>
 
         <div class="tab-content">
             @php
-                $count_service =0;
+                $count_service = 0;
             @endphp
-
             @foreach($facilities as $facility)
-            <div id="{{$facility->id}}" class="tab-pane container  @if($count_service ==0){ active } @endif">
+            <div id="{{$facility->id}}" class="tab-pane container @if($count_service==0){ active } @endif">
                 <h3>{{$facility->short_title}}</h3>
-                <p>{{$facility->long_title}}</p>
+                <p>{{$facility->logng_title}}</p>
             </div>
-
                 @php
                     $count_service++
                 @endphp
             @endforeach
+
+
 
         </div>
 

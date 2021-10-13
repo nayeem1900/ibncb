@@ -15,11 +15,11 @@ class FrontendController extends Controller
 {
 
     public function index(){
-        $data['facilities']=Facility::all();
         $data['about_school']=Mission::first();
         $data['principal_message']=PrincipalMessage::first();
        $data['logo']=Logo::first();
         $data['sliders']=Slider::all();
+        $data['facilities']=Facility::all();
         return view('frontend.layouts.home',$data);
     }
 
@@ -28,13 +28,13 @@ class FrontendController extends Controller
         return view('frontend.pages.objective');
     }
     public function admission(){
-
-        return view('frontend.pages.admission');
+        $data['logo']=Logo::first();
+        return view('frontend.pages.admission',$data);
     }
 
     public function teacherinfo(){
-
-        return view('frontend.pages.teacher_info');
+        $data['logo']=Logo::first();
+        return view('frontend.pages.teacher_info',$data);
     }
     public function notice(){
 

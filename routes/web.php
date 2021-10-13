@@ -102,6 +102,15 @@ route::group(['middleware'=>'auth'],function (){
         Route::post('/update/{id}', 'Backend\LatestNoticeController@update')->name('latest_notice.update');
         Route::post('/delete/{id}', 'Backend\LatestNoticeController@delete')->name('latest_notice.delete');
     });
+    Route::prefix ('admissions')->group (function () {
+        //latest notice
+        Route::get('/view', 'Backend\AdmissionController@view')->name('admissions.view');
+        Route::get('/add', 'Backend\AdmissionController@add')->name('admissions.add');
+        Route::post('/store', 'Backend\AdmissionController@store')->name('admissions.store');
+        Route::get('/edit/{id}', 'Backend\AdmissionController@edit')->name('admissions.edit');
+        Route::post('/update/{id}', 'Backend\AdmissionController@update')->name('admissions.update');
+        Route::post('/delete/{id}', 'Backend\AdmissionController@delete')->name('admissions.delete');
+    });
     Route::prefix ('about_us')->group (function () {
         //latest notice
         Route::get('/view', 'Backend\AboutusController@view')->name('about_us.view');
