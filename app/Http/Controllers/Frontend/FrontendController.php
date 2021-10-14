@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Model\Admission;
 use App\Model\Facility;
 use App\Model\LatestNotice;
 use App\Model\Logo;
@@ -28,6 +29,7 @@ class FrontendController extends Controller
         return view('frontend.pages.objective');
     }
     public function admission(){
+        $data['allData']=Admission::all();
         $data['logo']=Logo::first();
         return view('frontend.pages.admission',$data);
     }

@@ -37,7 +37,7 @@
                             <div class="card-header">
                                 <h3>Add Admission
 
-                                    <a class="btn btn-success float-right btn-sm" href="{{route('latest_notice.view')}}"><i class="fa fa-list"></i>Admission List</a>
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('admissions.view')}}"><i class="fa fa-list"></i>Admission List</a>
                                 </h3>
 
                             </div><!-- /.card-header -->
